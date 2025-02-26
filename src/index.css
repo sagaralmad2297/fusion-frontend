@@ -1,3 +1,4 @@
+/* Reset styles for a clean layout */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,115 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 64px;
+  background-color: #2874f0;
+}
+
+/* Sidebar toggler (menu icon) */
+.sidebar-toggler {
+  color: white;
+}
+
+/* Brand name */
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 12px;
+}
+
+/* Search bar container */
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px 12px;
+  max-width: 600px;
+  min-width: 300px;
+  position: relative;
+}
+
+/* Search input */
+.search-input {
+  flex: 1;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  padding-right: 32px;
+}
+
+/* Search icon (inside the search bar) */
+.search-icon {
+  position: absolute;
+  right: 12px;
+  color: #2874f0;
+  cursor: pointer;
+}
+
+/* Navbar right-side icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Icons inside navbar */
+.navbar-icons .MuiSvgIcon-root {
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 8px;
+  }
+
+  .search-bar {
+    max-width: 400px;
+  }
+
+  .navbar-icons {
+    gap: 10px;
+  }
+
+  .navbar-icons .MuiSvgIcon-root {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    max-width: 250px;
+    padding: 6px 10px;
+  }
+
+  .search-input {
+    font-size: 14px;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
+  }
+
+  .navbar-icons {
+    gap: 8px;
+  }
+
+  .navbar-icons .MuiSvgIcon-root {
+    font-size: 22px;
+  }
 }
