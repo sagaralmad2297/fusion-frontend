@@ -62,8 +62,15 @@ const Navbar = () => {
   const handleMenu = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
-  // Check if a token exists in localStorage
-  const isLoggedIn = localStorage.getItem("token");
+  // Check if accessToken exists in localStorage
+  const isLoggedIn = localStorage.getItem("accessToken");
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken"); // Remove the accessToken
+    handleClose(); // Close the menu
+    window.location.reload(); // Refresh the page to update the UI
+  };
 
   return (
     <>
@@ -86,7 +93,8 @@ const Navbar = () => {
               fontWeight: "bold",
               flexShrink: 0,
             }}
-          >Fusion
+          >
+            Fusion
           </Typography>
 
           {/* Search Bar */}
@@ -126,9 +134,14 @@ const Navbar = () => {
                 <IconButton color="inherit" onClick={handleMenu}>
                   <UserIcon />
                 </IconButton>
-                <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleClose}>orders</MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>
               </>
             )}
